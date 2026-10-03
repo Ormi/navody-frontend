@@ -36,8 +36,8 @@ $icon-youtube: url("../../../assets/images/icon-youtube.svg");
   $govuk-footer-crest-image-width-2x: 250px;
   $govuk-footer-crest-image-height-2x: 204px;
   // Half the 2x image so that it fits the regular 1x size.
-  $govuk-footer-crest-image-width: ($govuk-footer-crest-image-width-2x / 2);
-  $govuk-footer-crest-image-height: ($govuk-footer-crest-image-height-2x / 2);
+  $govuk-footer-crest-image-width: ($govuk-footer-crest-image-width-2x * .5);
+  $govuk-footer-crest-image-height: ($govuk-footer-crest-image-height-2x * .5);
 
   .sdn-footer {
     @include govuk-font($size: 16);
@@ -109,13 +109,13 @@ $icon-youtube: url("../../../assets/images/icon-youtube.svg");
   }
 
   .sdn-footer__heart:before {
-    top: - $sdn-footer-heart-size / 2;
+    top: - $sdn-footer-heart-size * .5;
     left: 0;
   }
 
   .sdn-footer__heart:after {
     top: 0;
-    left: $sdn-footer-heart-size / 2;
+    left: $sdn-footer-heart-size * .5;
   }
 
   .sdn-footer__heart-wrapper {

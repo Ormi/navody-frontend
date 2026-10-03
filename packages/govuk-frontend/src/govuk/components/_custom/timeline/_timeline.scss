@@ -2,7 +2,7 @@
 $color-done: govuk-colour("green");
 $color-progress: govuk-colour("orange");
 $color-waiting: govuk-colour("blue");
-$color-default: govuk-colour("light-grey");
+$color-default: govuk-colour("black", $variant: "tint-95");
 $color-default-transparent: rgba(0, 0, 0, .14); // transparent version of grey-3
 $color-black: #333333;
 $link-color: #000000;
@@ -12,7 +12,7 @@ $std-timeline-bullet-shadow: #ffbf47;
 $font-size: 16px;
 $line-height: 1.5;
 
-$component-spacing: ($font-size * $line-height) / 2;
+$component-spacing: $font-size * $line-height * .5;
 
 $bullet-border: 2px;
 $bullet-size: ($component-spacing * 2) - $bullet-border;
@@ -28,7 +28,7 @@ $icon-check-black: url("../../../assets/images/icon-check-black.svg");
 @include govuk-exports("govuk/component/sdn-timeline") {
   .sdn-timeline {
     @include govuk-font($size: 16, $line-height: 1.5);
-    @include govuk-text-colour;
+    color: govuk-functional-colour(text);
   }
 
   .sdn-timeline__list {
@@ -61,7 +61,7 @@ $icon-check-black: url("../../../assets/images/icon-check-black.svg");
         display: block;
         position: absolute;
         bottom: 0;
-        left: ($component-spacing / 2) + ($bullet-border / 2);
+        left: $component-spacing * .5 + $bullet-border * .5;
         width: $tail-width;
         height: $bullet-border;
         background-color: $color-default;
@@ -147,7 +147,7 @@ $icon-check-black: url("../../../assets/images/icon-check-black.svg");
 
     &:before {
       content: counter(li) ". ";
-      margin-right: $component-spacing / 2;
+      margin-right: $component-spacing * .5;
       counter-increment: li;
     }
   }
@@ -215,7 +215,7 @@ $icon-check-black: url("../../../assets/images/icon-check-black.svg");
       background-color: $std-timeline-dropdown-bg-color;
 
       &:hover {
-        background-color: govuk-colour("light-grey");
+        background-color: govuk-colour("black", $variant: "tint-95");
       }
 
       &:after {
@@ -238,7 +238,7 @@ $icon-check-black: url("../../../assets/images/icon-check-black.svg");
   }
 
   .sdn-timeline-dropdown__additional-info {
-    color: govuk-colour("dark-grey");
+    color: govuk-colour("black", $variant: "tint-25");
     @include govuk-font($size: 14);
   }
 

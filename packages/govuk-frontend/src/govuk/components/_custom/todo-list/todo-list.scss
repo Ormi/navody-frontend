@@ -253,7 +253,7 @@ $sdn-todo-list-button-conjunction-text-color: #000000;
 
   .govuk-label {
     @include govuk-font($size: 19);
-    @include govuk-text-colour;
+    color: govuk-functional-colour(text);
 
     display: block;
     margin-bottom: govuk-spacing(1);
