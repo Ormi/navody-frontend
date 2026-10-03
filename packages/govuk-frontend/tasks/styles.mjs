@@ -32,17 +32,6 @@ export const compile = (options) =>
     /**
      * Apply CSS prefixes to GOV.UK Frontend Sass
      */
-    task.name("compile:scss 'sdn'", () =>
-      styles.compile('sdn.scss', {
-        ...options,
-        srcPath: join(options.srcPath, 'govuk'),
-        destPath: join(options.destPath, 'govuk'),
-        configPath: join(options.basePath, 'postcss.config.mjs'),
-        filePath({ dir }) {
-          return join(dir, 'navody-digital.min.css')
-        }
-      })
-    ),
     task.name('postcss:scss', () =>
       styles.compile('**/*.scss', {
         ...options,

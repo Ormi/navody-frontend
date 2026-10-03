@@ -82,25 +82,6 @@ export const compile = (options) => {
     /**
      * Compile GOV.UK Prototype Kit config
      */
-    task.name("compile:js 'sdn'", () =>
-      scripts.compile('sdn.mjs', {
-        ...options,
-        srcPath: join(options.srcPath, 'govuk'),
-        destPath: join(options.destPath, 'govuk'),
-        configPath: join(options.basePath, 'rollup.publish.config.mjs')
-      })
-    ),
-    task.name("compile:js 'sdn minified'", () =>
-      scripts.compile('sdn.mjs', {
-        ...options,
-        srcPath: join(options.srcPath, 'govuk'),
-        destPath: join(options.destPath, 'govuk'),
-        configPath: join(options.basePath, 'rollup.release.config.mjs'),
-        filePath({ dir }) {
-          return join(dir, 'navody-digital.min.js')
-        }
-      })
-    ),
     task.name("compile:js 'govuk-prototype-kit'", () =>
       configs.compile('govuk-prototype-kit.config.mjs', {
         srcPath: join(options.srcPath, 'govuk-prototype-kit'),

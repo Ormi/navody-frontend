@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["./src/govuk/**/*.js", "./src/govuk/**/*.mjs"],
+  "include": ["./src/govuk/**/*.js", "./src/govuk/**/*.mjs", "./sdn/**/*.mjs"],
   "exclude": ["**/*.test.*"],
   "compilerOptions": {
     "lib": ["ESNext", "DOM"],

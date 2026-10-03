@@ -2,7 +2,7 @@ import { paths } from '@govuk-frontend/config'
 import { npm, task } from '@govuk-frontend/tasks'
 import gulp from 'gulp'
 
-import { assets, fixtures, scripts, styles, templates } from '../index.mjs'
+import { assets, fixtures, scripts, sdn, styles, templates } from '../index.mjs'
 
 /**
  * Build package task
@@ -19,6 +19,7 @@ export default (options) =>
     fixtures(options),
     scripts(options),
     styles(options),
+    sdn(options),
     templates(options),
 
     // Copy GOV.UK Prototype Kit JavaScript

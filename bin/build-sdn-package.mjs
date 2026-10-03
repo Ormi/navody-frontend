@@ -15,7 +15,7 @@ await cp(join(root, 'LICENSE.txt'), join(target, 'LICENSE.txt'))
 // Keep import paths used by navody.digital and priznanie-digital working
 await writeFile(
   join(target, 'govuk/all.scss'),
-  '@import "../dist/govuk/sdn";\n'
+  '@import "../dist/sdn/index";\n'
 )
 
 await writeFile(
@@ -26,15 +26,15 @@ await writeFile(
       description:
         'Navody.Digital Frontend contains the code you need to start building a user interface for navody.digital',
       version: process.env.SDN_VERSION ?? '1.0.0-alpha.0',
-      main: 'dist/govuk/sdn.bundle.js',
-      module: 'dist/govuk/sdn.mjs',
-      sass: 'dist/govuk/sdn.scss',
+      main: 'dist/sdn/index.bundle.js',
+      module: 'dist/sdn/index.mjs',
+      sass: 'dist/sdn/index.scss',
       exports: {
         '.': {
-          sass: './dist/govuk/sdn.scss',
-          import: './dist/govuk/sdn.mjs',
-          require: './dist/govuk/sdn.bundle.js',
-          default: './dist/govuk/sdn.bundle.js'
+          sass: './dist/sdn/index.scss',
+          import: './dist/sdn/index.mjs',
+          require: './dist/sdn/index.bundle.js',
+          default: './dist/sdn/index.bundle.js'
         },
         './dist/': './dist/',
         './package.json': './package.json',

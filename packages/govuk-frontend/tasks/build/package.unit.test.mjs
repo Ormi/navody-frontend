@@ -44,9 +44,7 @@ describe('packages/govuk-frontend/dist/', () => {
     })
 
     // Components list
-    componentNames = (await getComponentNames()).filter(
-      (componentName) => !componentName.startsWith('_')
-    )
+    componentNames = await getComponentNames()
 
     // Components list (with JavaScript only)
     componentNamesWithJavaScript = await getComponentNamesFiltered(
@@ -62,8 +60,7 @@ describe('packages/govuk-frontend/dist/', () => {
       '!**/__snapshots__/',
       '!**/__snapshots__/**',
       '!**/tsconfig?(.build).json',
-      '!README.md',
-      '!**/components/_custom/**/*.yaml'
+      '!README.md'
     ]
 
     // Build array of expected output files
@@ -84,7 +81,7 @@ describe('packages/govuk-frontend/dist/', () => {
       // Only package entries and components are compiled to ES module + UMD bundles
       .flatMap(
         mapPathTo(
-          ['**/govuk/{all,sdn,components/!(_custom)/**/*}.mjs'],
+          ['**/govuk/{all,components/**/*}.mjs'],
           ({ dir: requirePath, name }) => [
             join(requirePath, `${name}.mjs`),
 
@@ -107,22 +104,6 @@ describe('packages/govuk-frontend/dist/', () => {
           // ES module bundles for browsers, minified
           join(requirePath, 'govuk-frontend.min.js'), // avoid .mjs extension MIME issues
           join(requirePath, 'govuk-frontend.min.js.map') // with source map
-        ])
-      )
-
-      // SDN entries are compiled to minified bundles
-      .flatMap(
-        mapPathTo(['**/govuk/sdn.mjs'], ({ dir: requirePath }) => [
-          join(requirePath, 'sdn.mjs'),
-          join(requirePath, 'navody-digital.min.js'),
-          join(requirePath, 'navody-digital.min.js.map')
-        ])
-      )
-      .flatMap(
-        mapPathTo(['**/govuk/sdn.scss'], ({ dir: requirePath }) => [
-          join(requirePath, 'sdn.scss'),
-          join(requirePath, 'navody-digital.min.css'),
-          join(requirePath, 'navody-digital.min.css.map')
         ])
       )
 
@@ -157,7 +138,7 @@ describe('packages/govuk-frontend/dist/', () => {
 
     // Compare output files with '.npmignore' filter
     const listingDistIgnored = listingDist.filter(
-      filterPath(['!**/*.html', '!**/*.test.*'])
+      filterPath(['!**/*.html', '!**/*.test.*', '!sdn/**'])
     )
 
     expect(listingDistIgnored).toEqual(listingExpected)

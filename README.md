@@ -4,16 +4,16 @@ navody.digital frontend je knižnica komponentov, ktorá vychádza z open source
 
 ## Štruktúra
 
-Repozitár je GOV.UK Frontend, do ktorého sú pridané naše súbory v `packages/govuk-frontend/src/govuk/`:
+Repozitár je GOV.UK Frontend (`packages/govuk-frontend/src/govuk/`), ku ktorému je pridaná naša vrstva v `packages/govuk-frontend/sdn/`:
 
-- `sdn.scss`, `sdn.mjs` – vstupy balíka (GOV.UK Frontend + SDN vrstva)
-- `settings/_sdn/` – font Roboto, farby, šírka stránky, doplnkové veľkosti písma
-- `helpers/_sdn/`, `core/_sdn/` – pomocné mixiny, odkazy, triedy odstránené v novších verziách GOV.UK (`_compatibility.scss`)
-- `components/_sdn/` – úpravy GOV.UK komponentov
-- `components/_custom/` – vlastné komponenty (header, headline, footer, feedbackbar, timeline, …)
-- `utilities/appear-link/`
+- `index.scss`, `index.mjs` – vstupy balíka (GOV.UK Frontend + SDN vrstva)
+- `settings/` – font Roboto, farby, šírka stránky, doplnkové veľkosti písma
+- `helpers/`, `core/` – pomocné mixiny, odkazy, triedy odstránené v novších verziách GOV.UK (`core/_compatibility.scss`)
+- `components/` – úpravy GOV.UK komponentov
+- `custom/` – vlastné komponenty (header, headline, footer, feedbackbar, timeline, …)
+- `utilities/appear-link/`, `assets/images/`
 
-GOV.UK súbory sa neupravujú, aby sa dali jednoducho aktualizovať.
+Build vrstvy je v `packages/govuk-frontend/tasks/sdn.mjs`, výstup ide do `dist/sdn/`. GOV.UK súbory sa takmer neupravujú, aby sa dali jednoducho aktualizovať.
 
 ## Použitie
 
@@ -37,7 +37,7 @@ JavaScript sa spustí, len ak má `<body>` triedu `govuk-frontend-supported`:
   </script>
 ```
 
-Hotové súbory bez buildu: `dist/govuk/navody-digital.min.css` a `dist/govuk/navody-digital.min.js`.
+Hotové súbory bez buildu: `dist/sdn/navody-digital.min.css` a `dist/sdn/navody-digital.min.js`.
 
 ## Build a vydanie
 
