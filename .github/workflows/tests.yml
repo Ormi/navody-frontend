@@ -326,39 +326,6 @@ jobs:
       - run: node --eval "console.log(require.resolve('govuk-frontend/dist/govuk/i18n.mjs'))"${{ env.FLAGS }}
         working-directory: packages/govuk-frontend
 
-  regression:
-    name: Percy
-    needs: [install, build]
-
-    # Run existing "Percy screenshots" workflow
-    # (after install and build have been cached)
-    uses: ./.github/workflows/screenshots.yml
-    secrets: inherit
-
-  generate-diff-package:
-    name: Diff changes to npm package
-    needs: [install]
-
-    permissions:
-      contents: read
-      pull-requests: write
-
-    # Run existing "Diff changes to npm package" workflow
-    # (after only install has been cached)
-    uses: ./.github/workflows/diff-change-to-package.yaml
-
-  generate-stats:
-    name: Stats comment
-    needs: [install]
-
-    permissions:
-      contents: read
-      pull-requests: write
-
-    # Run existing "Stats comment" workflow
-    # (after only install has been cached)
-    uses: ./.github/workflows/stats-comment.yml
-
   bundler-integrations:
     name: Bundler integrations
     needs: [install, build]
