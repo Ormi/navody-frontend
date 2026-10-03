@@ -16,6 +16,11 @@
     }
   }
 
+  // Hint changed from <span> to <div> in v4
+  .govuk-hint {
+    display: block;
+  }
+
   .govuk-warning-text__assistive {
     @include govuk-visually-hidden;
   }
