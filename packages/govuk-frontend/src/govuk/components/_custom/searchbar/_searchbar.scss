@@ -30,8 +30,8 @@ $icon-search: url("../../../assets/images/icon-search-white.svg");
 
   .sdn-searchbar-block {
     display: flex;
-    padding: 4px;
     align-items: stretch;
+    padding: 4px;
 
     input[type="search"] {
       width: 100%;
@@ -48,8 +48,8 @@ $icon-search: url("../../../assets/images/icon-search-white.svg");
     align-items: center;
 
     &:first-child {
-      padding: 0 20px;
       flex-grow: 1;
+      padding: 0 20px;
     }
   }
 

@@ -1,9 +1,8 @@
-
 $color-done: govuk-colour("green");
 $color-progress: govuk-colour("orange");
 $color-waiting: govuk-colour("blue");
 $color-default: govuk-colour("black", $variant: "tint-95");
-$color-default-transparent: rgba(0, 0, 0, .14); // transparent version of grey-3
+$color-default-transparent: rgba(0, 0, 0, 0.14); // transparent version of grey-3
 $color-black: #333333;
 $link-color: #000000;
 $std-timeline-dropdown-bg-color: #f1f1f1;
@@ -12,7 +11,7 @@ $std-timeline-bullet-shadow: #ffbf47;
 $font-size: 16px;
 $line-height: 1.5;
 
-$component-spacing: $font-size * $line-height * .5;
+$component-spacing: $font-size * $line-height * 0.5;
 
 $bullet-border: 2px;
 $bullet-size: ($component-spacing * 2) - $bullet-border;
@@ -42,7 +41,7 @@ $icon-check-black: url("../../../assets/images/icon-check-black.svg");
     position: relative;
     padding-left: $bullet-border + $component-spacing * 4;
 
-    &:before {
+    &::before {
       content: "";
       position: absolute;
       top: 0;
@@ -56,12 +55,12 @@ $icon-check-black: url("../../../assets/images/icon-check-black.svg");
       padding-bottom: $component-spacing * 2;
 
       // tail-end of the timeline
-      &:after {
+      &::after {
         content: "";
         display: block;
         position: absolute;
         bottom: 0;
-        left: $component-spacing * .5 + $bullet-border * .5;
+        left: $component-spacing * 0.5 + $bullet-border * 0.5;
         width: $tail-width;
         height: $bullet-border;
         background-color: $color-default;
@@ -80,11 +79,11 @@ $icon-check-black: url("../../../assets/images/icon-check-black.svg");
     }
 
     &--done {
-      &:before {
+      &::before {
         background: $color-done;
       }
 
-      &:last-child:after {
+      &:last-child::after {
         background-color: $color-done;
       }
     }
@@ -142,12 +141,12 @@ $icon-check-black: url("../../../assets/images/icon-check-black.svg");
 
     &:hover {
       color: $link-color;
-      text-decoration-color: currentColor;
+      text-decoration-color: currentcolor;
     }
 
-    &:before {
+    &::before {
       content: counter(li) ". ";
-      margin-right: $component-spacing * .5;
+      margin-right: $component-spacing * 0.5;
       counter-increment: li;
     }
   }
@@ -164,8 +163,8 @@ $icon-check-black: url("../../../assets/images/icon-check-black.svg");
     background-color: govuk-colour("white");
     box-shadow: $color-default-transparent 0 15px 30px;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: "";
       display: block;
       position: absolute;
@@ -174,18 +173,18 @@ $icon-check-black: url("../../../assets/images/icon-check-black.svg");
       border-style: solid;
     }
 
-    &:before {
-      top: - 6px;
+    &::before {
+      top: -6px;
       left: 15px;
       border-width: 0 9px 6px;
-      border-color: transparent transparent $color-default transparent;
+      border-color: transparent transparent $color-default;
     }
 
-    &:after {
-      top: - 5px;
+    &::after {
+      top: -5px;
       left: 17px;
       border-width: 0 7px 5px;
-      border-color: transparent transparent govuk-colour("white") transparent;
+      border-color: transparent transparent govuk-colour("white");
     }
 
     .sdn-timeline__step--dropdown-active & {
@@ -218,7 +217,7 @@ $icon-check-black: url("../../../assets/images/icon-check-black.svg");
         background-color: govuk-colour("black", $variant: "tint-95");
       }
 
-      &:after {
+      &::after {
         content: "";
         display: block;
         position: absolute;
@@ -250,8 +249,8 @@ $icon-check-black: url("../../../assets/images/icon-check-black.svg");
     .sdn-timeline__step {
       padding-left: 0;
 
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         display: none;
       }
     }

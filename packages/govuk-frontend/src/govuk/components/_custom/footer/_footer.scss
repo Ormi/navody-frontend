@@ -1,4 +1,3 @@
-
 @import "../../../helpers/typography";
 @import "../_partials/gradient-background";
 
@@ -36,8 +35,8 @@ $icon-youtube: url("../../../assets/images/icon-youtube.svg");
   $govuk-footer-crest-image-width-2x: 250px;
   $govuk-footer-crest-image-height-2x: 204px;
   // Half the 2x image so that it fits the regular 1x size.
-  $govuk-footer-crest-image-width: ($govuk-footer-crest-image-width-2x * .5);
-  $govuk-footer-crest-image-height: ($govuk-footer-crest-image-height-2x * .5);
+  $govuk-footer-crest-image-width: ($govuk-footer-crest-image-width-2x * 0.5);
+  $govuk-footer-crest-image-height: ($govuk-footer-crest-image-height-2x * 0.5);
 
   .sdn-footer {
     @include govuk-font($size: 16);
@@ -79,8 +78,8 @@ $icon-youtube: url("../../../assets/images/icon-youtube.svg");
   .sdn-footer__donate {
     @include govuk-font($size: 19);
     display: flex;
-    padding-left: govuk-spacing(3);
     align-items: center;
+    padding-left: govuk-spacing(3);
 
     @include govuk-media-query($until: desktop) {
       padding-top: govuk-spacing(6);
@@ -98,8 +97,8 @@ $icon-youtube: url("../../../assets/images/icon-youtube.svg");
     background-color: $sdn-footer-heart-color;
   }
 
-  .sdn-footer__heart:before,
-  .sdn-footer__heart:after {
+  .sdn-footer__heart::before,
+  .sdn-footer__heart::after {
     content: "";
     position: absolute;
     width: $sdn-footer-heart-size;
@@ -108,25 +107,25 @@ $icon-youtube: url("../../../assets/images/icon-youtube.svg");
     background-color: $sdn-footer-heart-color;
   }
 
-  .sdn-footer__heart:before {
-    top: - $sdn-footer-heart-size * .5;
+  .sdn-footer__heart::before {
+    top: -$sdn-footer-heart-size * 0.5;
     left: 0;
   }
 
-  .sdn-footer__heart:after {
+  .sdn-footer__heart::after {
     top: 0;
-    left: $sdn-footer-heart-size * .5;
+    left: $sdn-footer-heart-size * 0.5;
   }
 
   .sdn-footer__heart-wrapper {
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     min-width: 40px;
     height: 40px;
     border-radius: 20px;
     background: $sdn-footer-heart-background;
-    align-items: center;
-    justify-content: center;
   }
 
   .sdn-footer__donate-text {
@@ -142,8 +141,8 @@ $icon-youtube: url("../../../assets/images/icon-youtube.svg");
   .sdn-footer__newsletter {
     padding-top: govuk-spacing(6);
     @include govuk-media-query($from: desktop) {
-      padding-top: 0;
       flex: 0 0 $sdn-footer-newsletter-size;
+      padding-top: 0;
     }
   }
 
@@ -194,14 +193,14 @@ $icon-youtube: url("../../../assets/images/icon-youtube.svg");
 
   .sdn-footer__newsletter-heading-tooltip {
     @include govuk-font($size: 14);
-    opacity: .6;
+    opacity: 0.6;
   }
 
   .sdn-footer__newsletter-disclaimer {
     @include govuk-font($size: 14);
     display: inline-block;
     padding-right: govuk-spacing(3);
-    opacity: .8;
+    opacity: 0.8;
   }
 
   .has-sticky-footer {
@@ -209,8 +208,8 @@ $icon-youtube: url("../../../assets/images/icon-youtube.svg");
 
     body {
       display: flex;
-      height: 100%;
       flex-direction: column;
+      height: 100%;
     }
 
     .navody-template__content {

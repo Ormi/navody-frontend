@@ -1,9 +1,3 @@
-@if not mixin-exists("govuk-exports") {
-  @warn "Importing items from the core layer without first importing `base` is deprecated, and will no longer work as of GOV.UK Frontend v4.0.";
-}
-
-@import "../../base";
-
 @include govuk-exports("sdn/core/same-heigh-rows") {
   @include govuk-media-query($from: tablet) {
     .govuk-grid-row-same-height {
@@ -12,8 +6,8 @@
       div[class*="govuk-grid-column-"] {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: flex-start;
+        justify-content: space-between;
       }
     }
   }

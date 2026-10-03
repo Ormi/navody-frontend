@@ -1,4 +1,3 @@
-
 @import "../../../helpers/typography";
 
 @include govuk-exports("govuk/component/sdn-header") {
@@ -17,7 +16,7 @@
   $sdn-dropdown-border-color: #e6e6e6;
   $sdn-header-height: 55px;
 
-  $sdn-header-border-color: rgba(255, 255, 255, .2);
+  $sdn-header-border-color: rgba(255, 255, 255, 0.2);
 
   .sdn-header {
     @include govuk-font($size: 14);
@@ -32,21 +31,19 @@
   .sdn-header__container {
     display: flex;
     position: relative;
-    height: $sdn-header-height;
     align-items: center;
     justify-content: space-between;
+    height: $sdn-header-height;
+  }
 
-    &--logo {
-      > a {
-        display: flex;
+  .sdn-header__container--logo > a {
+    display: flex;
+  }
 
-        > img {
-          height: 20px;
-          @include govuk-media-query($from: tablet) {
-            height: 25px;
-          }
-        }
-      }
+  .sdn-header__container--logo > a > img {
+    height: 20px;
+    @include govuk-media-query($from: tablet) {
+      height: 25px;
     }
   }
 
@@ -77,33 +74,31 @@
   .sdn-header__navigation {
     padding-left: 0;
     list-style: none;
+  }
 
-    > li {
-      display: inline-block;
-      vertical-align: middle;
+  .sdn-header__navigation > li {
+    display: inline-block;
+    vertical-align: middle;
+  }
 
-      & + li {
-        margin-left: 40px;
+  .sdn-header__navigation > li + li {
+    margin-left: 40px;
 
-        &:before {
-          content: "";
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          margin-left: -22px;
-          border-left: 1px solid $sdn-header-border-color;
-        }
-      }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin-left: -22px;
+      border-left: 1px solid $sdn-header-border-color;
+    }
+  }
 
-      &.sdn-header__form {
-        & + li {
-          margin-left: 20px;
+  .sdn-header__navigation > .sdn-header__form + li {
+    margin-left: 20px;
 
-          &:before {
-            content: none;
-          }
-        }
-      }
+    &::before {
+      content: none;
     }
   }
 
@@ -120,24 +115,24 @@
       border: 0;
       border-radius: 3px;
 
-      &.govuk-input {
-        outline: transparent;
-      }
-
       &:-webkit-input-placeholder {
-        opacity: .6;
+        opacity: 0.6;
         color: $sdn-header-placeholder;
       }
 
       &:-moz-placeholder {
-        opacity: .6;
+        opacity: 0.6;
         color: $sdn-header-placeholder;
       }
 
       &:-ms-input-placeholder {
-        opacity: .6;
+        opacity: 0.6;
         color: $sdn-header-placeholder;
       }
+    }
+
+    .govuk-input {
+      outline: transparent;
     }
 
     button {
@@ -150,7 +145,6 @@
       color: $sdn-search-button-color;
       background: $sdn-search-button-background $icon-search no-repeat center center;
       background-size: 18px 18px;
-
     }
 
     form {
@@ -181,11 +175,11 @@
     right: 0;
     margin: 10px 0 0;
     padding: 5px 0;
+    list-style: none;
     border: 1px solid $sdn-dropdown-border-color;
     border-radius: 3px;
     color: $sdn-dropdown-color;
     background-color: $sdn-dropdown-background;
-    list-style: none;
 
     a {
       display: block;
@@ -211,7 +205,7 @@
       text-decoration: none;
     }
 
-    &:after {
+    &::after {
       content: " \25BE";
       position: absolute;
       top: 0;
@@ -249,7 +243,7 @@
     @include govuk-font($size: 16);
     display: none;
     position: absolute;
-    //top: govuk-spacing(4);
+    // top: govuk-spacing(4);
     top: 15px;
     right: 0;
     margin: 0;
@@ -263,7 +257,7 @@
       text-decoration: underline;
     }
 
-    &:after {
+    &::after {
       @include govuk-shape-arrow($direction: down, $base: 10px, $display: inline-block);
       content: "";
       margin-left: govuk-spacing(1);
@@ -278,12 +272,11 @@
 
   @each $breakpoint in $list-of-breakpoints {
     .#{sdn-header}-#{$breakpoint} {
-
       @include govuk-media-query($until: $breakpoint * 1px) {
         .sdn-header__container {
+          flex-wrap: wrap;
           height: auto;
           padding: 5px 0;
-          flex-wrap: wrap;
         }
 
         .sdn-header__menu-button {
@@ -307,10 +300,10 @@
           max-width: initial;
           margin-right: 0;
           padding-right: 0;
+        }
 
-          input {
-            height: 30px;
-          }
+        .sdn-header__form input {
+          height: 30px;
         }
 
         .sdn-header__dropdown {
@@ -322,26 +315,26 @@
           position: relative;
           margin-top: 0;
           overflow: hidden;
+        }
 
-          &--open {
-            display: block;
-          }
+        .sdn-header__navigation--open {
+          display: block;
+        }
 
-          > li {
-            display: list-item;
-            position: relative;
-            padding: 10px 0;
-            border-bottom: 1px solid $sdn-header-background-to;
-            white-space: nowrap;
+        .sdn-header__navigation > li {
+          display: list-item;
+          position: relative;
+          padding: 10px 0;
+          border-bottom: 1px solid $sdn-header-background-to;
+          white-space: nowrap;
+        }
 
-            & + li {
-              margin-left: 0;
+        .sdn-header__navigation > li + li {
+          margin-left: 0;
+        }
 
-              &:before {
-                content: none;
-              }
-            }
-          }
+        .sdn-header__navigation > li + li::before {
+          content: none;
         }
       }
     }

@@ -1,4 +1,3 @@
-
 @include govuk-exports("govuk/component/sdn-feedbackbar") {
   $sdn-feedbackbar-left-background: #ffffff;
   $sdn-feedbackbar-right-background: #f4f4f4;
@@ -72,9 +71,9 @@
     @include govuk-font($size: 16, $line-height: 1.5);
 
     display: flex;
+    justify-content: space-between;
     color: $sdn-feedbackbar-text-color;
     background: $sdn-feedbackbar-right-background;
-    justify-content: space-between;
 
     @include govuk-media-query($until: desktop) {
       flex-direction: column;
@@ -94,8 +93,8 @@
     // margin-right: 3em;
     // background: $sdn-feedbackbar-left-background;
     position: relative;
-    border-top: $sdn-feedbackbar-right-background .5em solid;
-    border-bottom: $sdn-feedbackbar-right-background .5em solid;
+    border-top: $sdn-feedbackbar-right-background 0.5em solid;
+    border-bottom: $sdn-feedbackbar-right-background 0.5em solid;
     background: $sdn-feedbackbar-left-background;
   }
 }

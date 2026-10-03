@@ -1,5 +1,5 @@
 @mixin govuk-typography-weight-light($important: false) {
-  font-weight: $govuk-font-weight-light if($important, !important, null);
+  font-weight: $govuk-font-weight-light govuk-if($important, !important);
 }
 
 @mixin sdn-font($size, $weight: regular, $tabular: false, $line-height: false) {

@@ -1,12 +1,6 @@
-@if not mixin-exists("govuk-exports") {
-  @warn "Importing items from the core layer without first importing `base` is deprecated, and will no longer work as of GOV.UK Frontend v4.0.";
-}
-
-@import "../../base";
-
+// stylelint-disable declaration-no-important
 
 @include govuk-exports("sdn/core/links") {
-
   $icon-external-link: url("../../assets/images/icon-external-link.svg");
   $icon-external-link-white: url("../../assets/images/icon-external-link-white.svg");
 
