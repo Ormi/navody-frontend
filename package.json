@@ -1,0 +1,48 @@
+{
+  "name": "navody-digital-frontend",
+  "description": "Navody.Digital Frontend contains the code you need to start building a user interface for navody.digital",
+  "version": "1.0.0-alpha.0",
+  "main": "dist/govuk/sdn.bundle.js",
+  "module": "dist/govuk/sdn.mjs",
+  "sass": "dist/govuk/sdn.scss",
+  "exports": {
+    ".": {
+      "sass": "./dist/govuk/sdn.scss",
+      "import": "./dist/govuk/sdn.mjs",
+      "require": "./dist/govuk/sdn.bundle.js",
+      "default": "./dist/govuk/sdn.bundle.js"
+    },
+    "./dist/": "./dist/",
+    "./package.json": "./package.json",
+    "./*": {
+      "sass": "./*",
+      "default": "./*"
+    }
+  },
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
+  "engines": {
+    "node": ">= 4.2.0"
+  },
+  "author": {
+    "name": "Slovensko.Digital",
+    "email": "navody@slovensko.digital"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slovensko-digital/navody-frontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/slovensko-digital/navody-frontend/issues"
+  },
+  "homepage": "https://github.com/slovensko-digital/navody-frontend#readme",
+  "keywords": [
+    "navody.digital",
+    "slovensko.digital",
+    "govuk",
+    "frontend"
+  ],
+  "license": "MIT"
+}

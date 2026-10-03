@@ -1,0 +1,8 @@
+@mixin _govuk-font-face-nta {
+  $dummy-color: #ffffff;
+
+  .dummy {
+    color: $dummy-color;
+  }
+}
+

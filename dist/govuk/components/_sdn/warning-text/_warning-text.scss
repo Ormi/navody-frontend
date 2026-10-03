@@ -1,0 +1,15 @@
+.govuk-warning-text {
+  @include sdn-font($size: 20, $weight: light);
+
+  strong {
+    @include sdn-font($size: 18, $weight: bold);
+  }
+}
+
+.govuk-warning-text__icon {
+  top: 50%;
+  margin-top: -20px;
+  border: 3px solid govuk-colour("black", $variant: "tint-80");
+  background: govuk-colour("black", $variant: "tint-80");
+}
+
