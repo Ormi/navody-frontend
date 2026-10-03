@@ -234,6 +234,10 @@ $icon-youtube: url("../../../assets/images/icon-youtube.svg");
       &:hover {
         text-decoration: underline;
       }
+
+      &:focus {
+        @include govuk-focused-text;
+      }
     }
   }
 
