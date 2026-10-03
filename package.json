@@ -2,15 +2,15 @@
   "name": "navody-digital-frontend",
   "description": "Navody.Digital Frontend contains the code you need to start building a user interface for navody.digital",
   "version": "1.0.0-alpha.0",
-  "main": "dist/govuk/sdn.bundle.js",
-  "module": "dist/govuk/sdn.mjs",
-  "sass": "dist/govuk/sdn.scss",
+  "main": "dist/sdn/index.bundle.js",
+  "module": "dist/sdn/index.mjs",
+  "sass": "dist/sdn/index.scss",
   "exports": {
     ".": {
-      "sass": "./dist/govuk/sdn.scss",
-      "import": "./dist/govuk/sdn.mjs",
-      "require": "./dist/govuk/sdn.bundle.js",
-      "default": "./dist/govuk/sdn.bundle.js"
+      "sass": "./dist/sdn/index.scss",
+      "import": "./dist/sdn/index.mjs",
+      "require": "./dist/sdn/index.bundle.js",
+      "default": "./dist/sdn/index.bundle.js"
     },
     "./dist/": "./dist/",
     "./package.json": "./package.json",
