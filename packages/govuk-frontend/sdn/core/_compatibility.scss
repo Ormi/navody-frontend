@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // stylelint-disable declaration-no-important
 
 // Classes removed in GOV.UK Frontend v5, still used by navody.digital and
@@ -19,6 +21,21 @@
   // Hint changed from <span> to <div> in v4
   .govuk-hint {
     display: block;
+  }
+
+  // Removed in v5, the disabled attribute is enough
+  .govuk-button--disabled {
+    opacity: (0.5);
+
+    &:hover {
+      background-color: $govuk-button-background-colour;
+      cursor: not-allowed;
+    }
+
+    &:active {
+      top: 0;
+      box-shadow: 0 $govuk-border-width-form-element 0 color.mix(#000000, $govuk-button-background-colour, 50%);
+    }
   }
 
   .govuk-warning-text__assistive {

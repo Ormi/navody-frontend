@@ -21,10 +21,13 @@ Build vrstvy je v `packages/govuk-frontend/tasks/sdn.mjs`, výstup ide do `dist/
 @import "navody-digital-frontend/govuk/all";
 ```
 
-```js
-// v projekte s bundlerom (webpack, Next.js, …)
-// import { initAll } from 'navody-digital-frontend'
-// initAll()
+V projekte s bundlerom (webpack, Next.js, …) sa importuje `initAll` z `navody-digital-frontend` a zavolá sa po načítaní stránky. Bez bundlera:
+
+```html
+<script type="module">
+  import { initAll } from '/node_modules/navody-digital-frontend/dist/sdn/navody-digital.min.js'
+  initAll()
+</script>
 ```
 
 JavaScript sa spustí, len ak má `<body>` triedu `govuk-frontend-supported`:

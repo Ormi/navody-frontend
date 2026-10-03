@@ -1,7 +1,7 @@
-$color-done: govuk-colour("green");
-$color-progress: govuk-colour("orange");
-$color-waiting: govuk-colour("blue");
-$color-default: govuk-colour("black", $variant: "tint-95");
+$color-done: #4cae18;
+$color-progress: #ff9120;
+$color-waiting: #3a67e8;
+$color-default: #dadadb;
 $color-default-transparent: rgba(0, 0, 0, 0.14); // transparent version of grey-3
 $color-black: #333333;
 $link-color: #000000;
@@ -214,7 +214,7 @@ $icon-check-black: url("../../assets/images/icon-check-black.svg");
       background-color: $std-timeline-dropdown-bg-color;
 
       &:hover {
-        background-color: govuk-colour("black", $variant: "tint-95");
+        background-color: #dadadb;
       }
 
       &::after {
@@ -237,7 +237,7 @@ $icon-check-black: url("../../assets/images/icon-check-black.svg");
   }
 
   .sdn-timeline-dropdown__additional-info {
-    color: govuk-colour("black", $variant: "tint-25");
+    color: #6f777b;
     @include govuk-font($size: 14);
   }
 
