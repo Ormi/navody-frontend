@@ -24,6 +24,7 @@
     "build": "npm run build --workspace govuk-frontend --workspace @govuk-frontend/review",
     "build:app": "cross-env-shell NODE_ENV=production npm run build --workspace @govuk-frontend/review",
     "build:package": "cross-env-shell NODE_ENV=production npm run build:package --workspace govuk-frontend",
+    "build:sdn-package": "npm run build:package && node bin/build-sdn-package.mjs",
     "build:release": "cross-env-shell NODE_ENV=production npm run build:release --workspace govuk-frontend",
     "build:types": "npm run build:types --workspaces --if-present",
     "postbuild:package": "jest --color --selectProjects \"Build tasks\" --testMatch \"**/build/package.unit.test.mjs\"",
