@@ -1,84 +1,72 @@
-GOV.UK Frontend ·
-[![Build Status](https://github.com/alphagov/govuk-frontend/actions/workflows/tests.yml/badge.svg?branch=main&event=push)](https://github.com/alphagov/govuk-frontend/actions/workflows/tests.yml)
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-=====================
+# Navody.Digital Frontend
 
-GOV.UK Frontend contains the code you need to start building a user interface
-for government platforms and services.
+navody.digital frontend je knižnica komponentov, ktorá vychádza z open source knižnice [GOV.UK Frontend](https://github.com/alphagov/govuk-frontend) (aktuálne v6.5.1) a pridáva k nej vlastné komponenty a štýly Slovensko.Digital. Používajú ju [navody.digital](https://github.com/slovensko-digital/navody.digital) a [priznanie.digital](https://github.com/slovensko-digital/priznanie-digital) cez npm balík `navody-digital-frontend`.
 
-See live examples of GOV.UK Frontend components, and guidance on when to use
-them in your service, in the [GOV.UK Design
-System](https://design-system.service.gov.uk/).
+## Štruktúra
 
-## Contact the team
+Repozitár je GOV.UK Frontend, do ktorého sú pridané naše súbory v `packages/govuk-frontend/src/govuk/`:
 
-GOV.UK Frontend is maintained by a team at Government Digital Service. If you want to know more about GOV.UK Frontend, please email the [Design System
-team](mailto:govuk-design-system-support@digital.cabinet-office.gov.uk) or get in touch with them on [Slack](https://ukgovernmentdigital.slack.com/messages/govuk-design-system).
+- `sdn.scss`, `sdn.mjs` – vstupy balíka (GOV.UK Frontend + SDN vrstva)
+- `settings/_sdn/` – font Roboto, farby, šírka stránky, doplnkové veľkosti písma
+- `helpers/_sdn/`, `core/_sdn/` – pomocné mixiny, odkazy, triedy odstránené v novších verziách GOV.UK (`_compatibility.scss`)
+- `components/_sdn/` – úpravy GOV.UK komponentov
+- `components/_custom/` – vlastné komponenty (header, headline, footer, feedbackbar, timeline, …)
+- `utilities/appear-link/`
 
-## Quick start
+GOV.UK súbory sa neupravujú, aby sa dali jednoducho aktualizovať.
 
-There are 2 ways to start using GOV.UK Frontend in your app:
+## Použitie
 
-- [using Node.js package manager
-  (npm)](https://frontend.design-system.service.gov.uk/installing-with-npm/) (recommended)
-- by [copying our CSS, JavaScript and asset
-  files into your project](https://frontend.design-system.service.gov.uk/install-using-precompiled-files/)
+```scss
+@import "navody-digital-frontend/govuk/all";
+```
 
-Once installed, you will be able to use the code from the examples in the
-[GOV.UK Design System](https://design-system.service.gov.uk/)
-in your service.
+```js
+// v projekte s bundlerom (webpack, Next.js, …)
+// import { initAll } from 'navody-digital-frontend'
+// initAll()
+```
 
-You should also have a plan to [stay up to date with changes](https://frontend.design-system.service.gov.uk/staying-up-to-date/).
+JavaScript sa spustí, len ak má `<body>` triedu `govuk-frontend-supported`:
 
-## Browser and assistive technology support
+```html
+<body class="govuk-template__body">
+  <script>
+    document.body.classList.add('js-enabled');
+    if ('noModule' in HTMLScriptElement.prototype) document.body.classList.add('govuk-frontend-supported');
+  </script>
+```
 
-To help manage the ever-growing number of browser versions, we group browsers into 4 grades:
+Hotové súbory bez buildu: `dist/govuk/navody-digital.min.css` a `dist/govuk/navody-digital.min.js`.
 
-- **grade A** - Most recent stable versions of Chrome, Firefox, Edge, Samsung Internet and Safari
-- **grade B** - All stable versions of Chrome, Firefox and Edge released in the last 6 months and the last 4 major stable releases of Safari which are not supported in Grade A
-- **grade C** - [All browsers that support `<script type="module">`](https://caniuse.com/es6-module) (Chrome 61+, Edge 16-18, Edge 79+, Firefox 60+, Safari 11+)
-- **grade X** - All other browsers (including IE11 and older)
+## Build a vydanie
 
-> **Note: Only browsers in grades A, B and C will run our JavaScript enhancements. We will not support our JavaScript enhancements for older browsers in grade X.**
+```sh
+npm ci
+npm run build:sdn-package
+cd package && npm publish
+```
 
-For more information see [our Browser Support documentation](/docs/contributing/browser-support.md).
+Verzia sa nastavuje premennou `SDN_VERSION` (napr. `SDN_VERSION=1.0.0 npm run build:sdn-package`).
 
-GOV.UK Frontend also supports:
+## Aktualizácia GOV.UK Frontend
 
-- [recommended assistive technologies](https://www.gov.uk/service-manual/technology/testing-with-assistive-technologies#which-assistive-technologies-to-test-with)
-- your users overriding colours in Windows, Firefox and Chrome
+```sh
+git remote add upstream https://github.com/alphagov/govuk-frontend.git
+git fetch upstream --tags
+git merge v6.x.y
+npm ci
+npm run build:sdn-package
+```
 
-## Accessibility
+Pri novej hlavnej verzii skontrolujte [changelog GOV.UK Frontend](https://github.com/alphagov/govuk-frontend/blob/main/CHANGELOG.md) a varovania Sass pri builde.
 
-The GOV.UK Design System team works hard to ensure that GOV.UK Frontend is accessible.
+## Kontakt na tím
 
-Using Frontend will help your service meet [level AA of WCAG 2.2](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag). But you must still [check that your service meets accessibility requirements](https://www.gov.uk/service-manual/helping-people-to-use-your-service/making-your-service-accessible-an-introduction), especially if you extend or modify components.
+navody.digital frontend vytvára a spravuje komunita okolo slovensko.digital. Kontaktovať nás môžete na [Slacku](https://slovensko-digital.slack.com/messages/CEGR9AZT5) v #navody-frontend.
 
-You should also use [the JavaScript from GOV.UK Frontend](https://frontend.design-system.service.gov.uk/importing-css-assets-and-javascript/#javascript) and read the [accessibility statement for the GOV.UK Design System](https://design-system.service.gov.uk/accessibility/).
+## Licencia
 
-## Known issues flagged by validators or automated testing tools
-
-Check our [list of known issues that may be reported by HTML Validators or automated testing tools](https://github.com/orgs/alphagov/projects/37).
-
-## Security
-
-GDS is an advocate of responsible vulnerability disclosure. If you’ve found a vulnerability, we would like to know so we can fix it.
-
-For full details on how to tell us about vulnerabilities, [see our security policy](https://github.com/alphagov/govuk-frontend/security/policy).
-
-## Licence
-
-Unless stated otherwise, the codebase is released under the MIT License. This
-covers both the codebase and any sample code in the documentation. The
-documentation is &copy; Crown copyright and available under the terms of the
+Ak nie je uvedené inakšie, kódy sú publikované s MIT License. Toto zahŕňa kódy aj ukážky kódov v dokumentácii.
+Pôvodná GOV.UK dokumentácia je licencovaná pod &copy; Crown copyright a dostupná podľa podmienok definovaných v
 Open Government 3.0 licence.
-
-## Contributing
-
-[To learn how to help us build GOV.UK Frontend, see our contribution guidelines.](CONTRIBUTING.md)
-
-The govuk-frontend repository is public and we welcome contributions from anyone.
-
-Contributors to alphagov repositories are expected to follow the [Contributor Covenant Code of Conduct](https://github.com/alphagov/.github/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct). Contributors working within government are also expected to follow the [Civil Service code](https://www.gov.uk/government/publications/civil-service-code/the-civil-service-code).
-
-We're unable to monitor activity on this repository outside of our office hours (10am to 4pm, UK time). To get a faster response at other times, you can [report abuse or spam to GitHub](https://docs.github.com/en/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam).
